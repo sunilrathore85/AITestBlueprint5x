@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Plan — VWO Login Dashboard</title>
+  <style>
+    :root {
+      --ink: #1c2430;
+      --muted: #5c6b7a;
+      --line: #d5dde6;
+      --head: #0f3d4c;
+      --band: #e7f1f4;
+      --paper: #ffffff;
+      --soft: #f6f8fa;
+      --accent: #0e7490;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eef2f5;
+      font-family: "Segoe UI", Calibri, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 920px;
+      margin: 28px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 48px 56px 64px;
+    }
+    header.doc {
+      border-bottom: 3px solid var(--head);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0 0 8px;
+      color: var(--head);
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .subtitle { margin: 0; color: var(--muted); font-size: 16px; }
+    h2 {
+      margin: 36px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--head);
+      font-size: 20px;
+    }
+    h3 { margin: 22px 0 8px; color: var(--head); font-size: 16px; }
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px; padding-left: 22px; }
+    li { margin: 4px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 16px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--band); color: var(--head); font-weight: 650; }
+    tr:nth-child(even) td { background: var(--soft); }
+    .meta th { width: 34%; }
+    .toc { background: var(--soft); border: 1px solid var(--line); padding: 14px 18px 8px; }
+    .toc ol { margin-bottom: 8px; }
+    .note {
+      background: var(--band);
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      margin: 0 0 16px;
+    }
+    a { color: var(--accent); }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; border: 0; max-width: none; padding: 0; }
+      h2 { break-after: avoid; }
+      table, tr { break-inside: avoid; }
+    }
+    @media (max-width: 720px) {
+      .page { margin: 0; padding: 24px 16px 40px; border: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header class="doc">
+      <p class="kicker">Test Plan</p>
+      <h1>VWO Login Dashboard</h1>
+      <p class="subtitle">Product requirements source: Product Requirements Document — VWO Login Dashboard (app.vwo.com)</p>
+    </header>
+
+    <table class="meta">
+      <tr><th>Document</th><td>Test Plan</td></tr>
+      <tr><th>Product</th><td>VWO (Visual Website Optimizer) login dashboard</td></tr>
+      <tr><th>Application URL</th><td>https://app.vwo.com</td></tr>
+      <tr><th>Version</th><td>1.0</td></tr>
+      <tr><th>Status</th><td>Draft — pending approval</td></tr>
+      <tr><th>Prepared for</th><td>QA review of the login dashboard described in the PRD</td></tr>
+      <tr><th>Date</th><td>16-Nov-2026</td></tr>
+    </table>
+
+    <nav class="toc" aria-label="Contents">
+      <h2 style="margin-top:0;border:0;padding:0;">Contents</h2>
+      <ol>
+        <li><a href="#objective">Objective</a></li>
+        <li><a href="#scope">Scope</a></li>
+        <li><a href="#inclusions">Inclusions</a></li>
+        <li><a href="#environments">Test Environments</a></li>
+        <li><a href="#defects">Defect Reporting Procedure</a></li>
+        <li><a href="#strategy">Test Strategy</a></li>
+        <li><a href="#schedule">Test Schedule</a></li>
+        <li><a href="#deliverables">Test Deliverables</a></li>
+        <li><a href="#criteria">Entry and Exit Criteria</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#risks">Risks and Mitigations</a></li>
+        <li><a href="#approvals">Approvals</a></li>
+      </ol>
+    </nav>
+
+    <section id="objective">
+      <h2>1. Objective</h2>
+      <p>The goal of this test plan is to confirm the quality, functionality, security, accessibility, and reliability of the VWO login dashboard at <strong>https://app.vwo.com</strong>.</p>
+      <p>The login dashboard is the entry point to VWO’s experimentation, personalization, and analytics tools. The product vision in the PRD is a secure, intuitive, and efficient login that connects users to the platform and meets enterprise security and user-experience expectations.</p>
+      <p>Testing checks the PRD business objectives:</p>
+      <ul>
+        <li>Secure access to the experimentation platform.</li>
+        <li>Low login friction for adoption and retention.</li>
+        <li>Enterprise security and compliance needs.</li>
+        <li>A clear path for new users into onboarding.</li>
+      </ul>
+      <p>Primary users are digital marketers, product managers, UX designers, and developers. Secondary users are enterprise teams, conversion-rate specialists, and data analysts. Companies range from about 50–200 employees to enterprises with 1000+ employees.</p>
+      <p>Success targets stated in the PRD, used as release checks where the build exposes them:</p>
+      <ul>
+        <li>Login success rate 95% or higher.</li>
+        <li>Login page load under 2 seconds on a standard connection.</li>
+        <li>User satisfaction 90% or higher for the login experience, when that measure is available.</li>
+        <li>No successful brute-force access and no unauthorized session hijacking in the security tests that are in scope.</li>
+        <li>Compliance checks required by the PRD (GDPR, CCPA, enterprise audit support, WCAG 2.1 AA) are evidenced.</li>
+        <li>Login-related support volume is tracked against the PRD target of a 20% reduction. Testing reports defects that would drive support tickets; it does not itself change the business metric.</li>
+      </ul>
+    </section>
+
+    <section id="scope">
+      <h2>2. Scope</h2>
+      <p>Scope follows the PRD for the login dashboard. Items listed under Future Enhancements are out of the current phases until they are specified for a build.</p>
+
+      <h3>In scope</h3>
+      <ol>
+        <li><strong>Functional testing.</strong> Email and password login, remember me, session handling and timeout, optional multi-factor authentication, enterprise single sign-on, free-trial registration link, and product announcement / light and dark mode entry points described in the PRD.</li>
+        <li><strong>Data validation.</strong> Real-time validation on blur, email format, mobile keyboard behavior for email, password strength and complexity rules, and rejection of invalid input.</li>
+        <li><strong>Error handling.</strong> Clear, actionable messages for failed authentication, and the error-recovery journey (identify the error, offer recovery, confirm success).</li>
+        <li><strong>Password management.</strong> Forgot-password flow, secure reset token, email-based recovery, and enforced password complexity.</li>
+        <li><strong>User experience.</strong> Responsive, touch-friendly layout, auto-focus on the first field, clickable labels, and loading feedback during authentication.</li>
+        <li><strong>Accessibility.</strong> ARIA labels, screen-reader support, keyboard navigation, high-contrast mode, and WCAG 2.1 AA as stated in the PRD.</li>
+        <li><strong>Branding.</strong> VWO design system, professional appearance, and light and dark themes.</li>
+        <li><strong>Security testing.</strong> HTTPS, encryption in transit, hashed password storage behavior as observable from requirements, session token handling, rate limiting against brute force, GDPR and CCPA data-handling expectations, enterprise audit support, and OWASP authentication guidelines. Tests confirm controls and safe failure. They do not include attack procedures.</li>
+        <li><strong>Performance and load.</strong> Login page load within 2 seconds on a standard connection, asset optimization and CDN behavior where observable, support for thousands of simultaneous login attempts, 99.9% availability target, and multi-region access as deployed.</li>
+        <li><strong>Integration.</strong> Transition to the main VWO dashboard after success, login success/failure analytics, customer-support handoff, SAML and OAuth enterprise SSO, optional Google and Microsoft social login, and onboarding / marketing-tool handoff described in the PRD.</li>
+        <li><strong>Compatibility.</strong> Desktop and mobile viewports, light and dark mode, and the browser and OS matrix in Test Environments.</li>
+        <li><strong>User journeys.</strong> New user (arrival, registration call-to-action, post-registration introduction), returning user (remembered credentials, dashboard, previous context), and error recovery.</li>
+        <li><strong>Regression.</strong> After fixes, existing login behavior in the signed-off scope still works.</li>
+        <li><strong>Phase coverage.</strong> Phase 1 core authentication, Phase 2 enhanced UX, Phase 3 enterprise features, matching the PRD implementation phases.</li>
+      </ol>
+
+      <h3>Out of scope for the current phases</h3>
+      <ul>
+        <li>Future enhancements called out in the PRD and not assigned to Phase 1, 2, or 3: biometric authentication, adaptive risk-based authentication, progressive web app behavior, A/B tests of the login experience, behavior-based personalization of the login screen.</li>
+        <li>Features of the VWO experimentation product that sit behind the dashboard, except the handoff after a successful login.</li>
+        <li>Any environment, URL, role, or integration the PRD does not name and that is not part of the company test-environment matrix below.</li>
+      </ul>
+      <p class="note">Scope can change if the PRD changes or if testing finds gaps. Changes are reviewed before they are added to execution.</p>
+    </section>
+
+    <section id="inclusions">
+      <h2>3. Inclusions</h2>
+
+      <h3>Primary login</h3>
+      <ul>
+        <li>Sign in with a valid email and password and land on the VWO dashboard.</li>
+        <li>Reject wrong password, unknown email, empty fields, and malformed email with a clear message.</li>
+        <li>Validate email format and show field feedback on blur.</li>
+        <li>Show password strength and enforce the complexity rules in the PRD.</li>
+        <li>Auto-focus the first field. Labels activate the related input.</li>
+        <li>Show a loading state while authentication runs.</li>
+      </ul>
+
+      <h3>Session and remember me</h3>
+      <ul>
+        <li>Remember me keeps the session as specified, and a session ends when the configured timeout is reached.</li>
+        <li>Session tokens are issued and used as specified. A logged-out or expired session cannot open the dashboard.</li>
+        <li>Returning users reach their dashboard. Context from the previous session is preserved as the PRD describes.</li>
+      </ul>
+
+      <h3>Password recovery</h3>
+      <ul>
+        <li>Forgot-password starts a reset that uses a secure token and email recovery.</li>
+        <li>Invalid, expired, or reused reset tokens do not set a new password.</li>
+        <li>The new password must meet complexity rules. Success is confirmed to the user.</li>
+      </ul>
+
+      <h3>Registration path</h3>
+      <ul>
+        <li>The free-trial registration link is present and reaches signup.</li>
+        <li>After registration, the guided introduction described in the PRD is available.</li>
+      </ul>
+
+      <h3>Multi-factor authentication</h3>
+      <ul>
+        <li>Optional 2FA can be required for an account that has it enabled.</li>
+        <li>A wrong or missing second factor does not open the dashboard.</li>
+        <li>Accounts without 2FA still complete email and password login.</li>
+      </ul>
+
+      <h3>Enterprise SSO and social login</h3>
+      <ul>
+        <li>Organizational accounts can sign in with enterprise SSO using SAML and OAuth as specified.</li>
+        <li>Optional Google and Microsoft sign-in follows the PRD.</li>
+        <li>A failed or cancelled identity-provider login stays on a recoverable login state and does not create a VWO session.</li>
+      </ul>
+
+      <h3>Accessibility, theme, and layout</h3>
+      <ul>
+        <li>Keyboard-only use of every control on the login screen.</li>
+        <li>Screen-reader names via ARIA labels. High-contrast mode remains usable.</li>
+        <li>Layout works on desktop, tablet, and phone with touch-friendly controls.</li>
+        <li>Light and dark mode match the announced themes and stay readable.</li>
+        <li>Visual design stays consistent with VWO branding in the PRD.</li>
+      </ul>
+
+      <h3>Security and compliance checks</h3>
+      <ul>
+        <li>Login traffic is HTTPS. Authentication data is protected in transit as required.</li>
+        <li>Password values are not returned in page content, client storage readable by script beyond what the PRD allows, or analytics payloads.</li>
+        <li>Rate limiting slows or blocks repeated failed attempts.</li>
+        <li>Error text does not reveal whether a protection control can be bypassed and does not expose secrets.</li>
+        <li>GDPR and CCPA handling and enterprise audit needs are verified against the behaviors the build exposes (consent, data access, audit trail), limited to login.</li>
+      </ul>
+
+      <h3>Performance and availability</h3>
+      <ul>
+        <li>Login page becomes usable within 2 seconds on a standard connection.</li>
+        <li>Compressed assets, minified CSS and JavaScript, and CDN delivery are confirmed where those artifacts are observable.</li>
+        <li>Concurrent login attempts at the volume the environment can host, toward the PRD target of thousands of simultaneous attempts.</li>
+        <li>Availability is monitored against the 99.9% target. Geographic behavior is checked on the deployed regions.</li>
+      </ul>
+
+      <h3>Integrations and analytics</h3>
+      <ul>
+        <li>Successful login opens the main VWO dashboard.</li>
+        <li>Login success and failure are available to analytics as specified.</li>
+        <li>A support path exists for login assistance.</li>
+        <li>Onboarding and marketing integrations fire only as the PRD describes for new users.</li>
+      </ul>
+
+      <h3>Boundary, concurrency, and regression</h3>
+      <ul>
+        <li>Boundary emails and passwords: shortest and longest values the requirements allow, and one step outside those limits.</li>
+        <li>Concurrent sessions for the same account: timeout, remember me, and logout stay consistent.</li>
+        <li>After each fix, the affected Phase 1, 2, or 3 cases are retested, then a smoke pass of login, reset, and dashboard handoff.</li>
+      </ul>
+    </section>
+
+    <section id="environments">
+      <h2>4. Test Environments</h2>
+      <p>The PRD names a single application address. Separate QA and pre-production hosts are not listed in the PRD. Execution uses the approved build URL for this project. Until a distinct host is approved, the address in the PRD is the reference.</p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>URL</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Application under test</td><td>https://app.vwo.com</td></tr>
+        </tbody>
+      </table>
+      <p>Operating systems, browsers, and devices for execution:</p>
+      <ul>
+        <li>Windows 10 — Chrome, Firefox, and Edge</li>
+        <li>macOS — Safari</li>
+        <li>Android — Chrome</li>
+        <li>iPhone — Safari</li>
+      </ul>
+      <p>Also covered because the PRD requires them:</p>
+      <ul>
+        <li>Desktop, laptop, tablet, and smartphone layouts.</li>
+        <li>Standard connection for the 2-second load target. Wi-Fi, wired, and cellular where mobile layout is in test.</li>
+        <li>Light mode and dark mode.</li>
+        <li>High-contrast and keyboard-only passes on one desktop browser and one mobile screen reader or accessibility tool available to the team.</li>
+      </ul>
+      <p>Access methods under test are those named in the PRD: email and password, optional 2FA, session tokens, enterprise SSO (SAML and OAuth), and optional Google and Microsoft sign-in. HTTPS is required for login traffic.</p>
+      <p>People using the environment are testers, developers, and stakeholders who have been granted access for this project. Accounts used for testing are project test accounts. Personal accounts and real customer data are not used.</p>
+    </section>
+
+    <section id="defects">
+      <h2>5. Defect Reporting Procedure</h2>
+      <p>A defect is a deviation from the PRD, a broken user journey, a failed validation or error message, an accessibility gap against WCAG 2.1 AA as cited in the PRD, a security control that does not meet the PRD, or a technical error on the login dashboard.</p>
+      <p>Reporting steps:</p>
+      <ol>
+        <li>Record the defect in JIRA with the project template.</li>
+        <li>Include environment, browser, account type (no secrets), steps, expected result from the PRD, actual result, and severity and priority.</li>
+        <li>Attach a screenshot or screen recording and any non-sensitive log or request id. Remove passwords, tokens, and personal data before attaching.</li>
+      </ol>
+      <p>Triage assigns severity and priority and routes the ticket to the role that owns the area. The bug triage skill comment shape (problem, severity, priority, how to test, risks) is the comment standard on the ticket.</p>
+      <table>
+        <thead>
+          <tr><th>Area</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Triage point of contact</td><td>Test lead</td></tr>
+          <tr><td>Login interface, validation, themes, accessibility</td><td>Frontend</td></tr>
+          <tr><td>Authentication, session, reset token, SSO</td><td>Backend</td></tr>
+          <tr><td>HTTPS, rate limit, availability, CDN, regions</td><td>DevOps</td></tr>
+        </tbody>
+      </table>
+      <p>Tracking tool: JIRA. Testers file and retest. Developers investigate and fix. The test lead prioritizes with the team and reports status.</p>
+      <p>Communication: defects found that day are sent to development management in an end-of-day status email. Stakeholders get status at the cadence agreed at approval. Emails do not include passwords, tokens, or personal data.</p>
+      <p>Measures: defects found, time to resolve, and percentage fixed and retested. Counts are split by phase (core authentication, enhanced UX, enterprise) and by type (functional, validation, accessibility, security, performance, integration).</p>
+    </section>
+
+    <section id="strategy">
+      <h2>6. Test Strategy</h2>
+      <p>Step 1. Write test scenarios and test cases for the inclusions above.</p>
+      <p>Design techniques:</p>
+      <ul>
+        <li>Equivalence class partitioning — valid and invalid email, password, and token groups.</li>
+        <li>Boundary value analysis — password length and complexity limits, field lengths, session timeout edges.</li>
+        <li>Decision table testing — combinations of remember me, 2FA on or off, and SSO versus password login.</li>
+        <li>State transition testing — logged out, authenticating, second factor, authenticated, timed out, reset requested, reset complete.</li>
+        <li>Use case testing — new user, returning user, and error recovery journeys in the PRD.</li>
+        <li>Error guessing and exploratory testing — in addition to the written cases.</li>
+      </ul>
+      <p>Cases are prioritized so Phase 1 login, validation, errors, and password reset run before Phase 2 UX and Phase 3 SSO and monitoring.</p>
+
+      <p>Step 2. When a build is ready for test:</p>
+      <ul>
+        <li>Run smoke tests on sign-in, validation message, forgot password, and dashboard handoff.</li>
+        <li>If smoke fails, reject the build and wait for a stable build before deep testing.</li>
+        <li>On a stable build, execute the signed-off cases.</li>
+        <li>Several testers cover the environment matrix at the same time.</li>
+        <li>File defects in JIRA and send the day’s defects to development management.</li>
+      </ul>
+      <p>Types used on this product: smoke and sanity, regression and retest, usability, functionality, and UI. Cycles repeat until the phase exit criteria are met.</p>
+
+      <p>Step 3. Practices:</p>
+      <ul>
+        <li>Context-driven testing — depth follows login risk. Authentication, session, reset, and SSO get more cases than banner copy.</li>
+        <li>Shift-left — review the PRD and draft cases before the stable build, starting in Phase 1.</li>
+        <li>Exploratory testing — alongside scripted cases, especially accessibility, theme switch, and error recovery.</li>
+        <li>End-to-end flows — new user from login page to trial signup and introduction; returning user from login to dashboard; failed login through reset to a new session.</li>
+      </ul>
+    </section>
+
+    <section id="schedule">
+      <h2>7. Test Schedule</h2>
+      <p>The PRD defines three development phases. Testing tasks follow those phases. Calendar dates are set when the test plan is approved. The company template also plans the work across sprints; sprint dates are filled in at approval.</p>
+      <table>
+        <thead>
+          <tr><th>Task</th><th>When</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Creating the test plan</td><td>Before Phase 1 execution. This document.</td></tr>
+          <tr><td>Test case creation</td><td>Phase 1 cases first (login, validation, errors, password reset). Phase 2 cases next (mobile, accessibility, advanced feedback). Phase 3 cases next (SSO, advanced security, analytics).</td></tr>
+          <tr><td>Test case execution</td><td>Phase 1: core authentication. Phase 2: enhanced UX. Phase 3: enterprise features. Each phase starts with smoke, then full cases, then retest.</td></tr>
+          <tr><td>Summary reports</td><td>At the end of each phase, and a final summary at test closure.</td></tr>
+        </tbody>
+      </table>
+      <p>Two sprints are the baseline in the company template for application testing. If Phase 3 SSO and security work does not fit those two sprints, the test lead raises the schedule risk in the approvals section before execution continues.</p>
+    </section>
+
+    <section id="deliverables">
+      <h2>8. Test Deliverables</h2>
+      <ul>
+        <li>Test plan (this document).</li>
+        <li>Test scenarios.</li>
+        <li>Test cases.</li>
+        <li>Test case execution reports.</li>
+        <li>Defect reports in JIRA.</li>
+        <li>Test summary report at closure.</li>
+      </ul>
+    </section>
+
+    <section id="criteria">
+      <h2>9. Entry and Exit Criteria</h2>
+      <p>Entry and exit criteria for each phase of the testing life cycle:</p>
+
+      <h3>Requirement analysis</h3>
+      <p><strong>Entry.</strong> The testing team has the requirements document or project details. For this work, that document is the VWO Login Dashboard PRD.</p>
+      <p><strong>Exit.</strong> The requirements have been explored and understood. Open questions are cleared before cases are treated as final.</p>
+
+      <h3>Test execution</h3>
+      <p><strong>Entry.</strong> Test scenarios and test cases are signed off. The application build is ready for testing.</p>
+      <p><strong>Exit.</strong> Test case reports and defect reports are ready. For a phase exit, smoke is green, planned cases for that phase are executed, and open defects are accepted by the approvers with severity and priority set.</p>
+
+      <h3>Test closure</h3>
+      <p><strong>Entry.</strong> Test case reports and defect reports are ready.</p>
+      <p><strong>Exit.</strong> The test summary report is complete. The summary states results against the PRD targets that were testable in the build: login success, page load under 2 seconds, accessibility evidence, and security controls in scope. It lists open defects and any PRD item not exercised.</p>
+    </section>
+
+    <section id="tools">
+      <h2>10. Tools</h2>
+      <ul>
+        <li>JIRA — defect tracking.</li>
+        <li>Mind map — scenario breakdown of login, recovery, and SSO.</li>
+        <li>Snipping and screenshot capture — defect evidence, with secrets removed.</li>
+        <li>Word and Excel — cases, execution records, and the summary report. This plan is the HTML copy of the test plan.</li>
+      </ul>
+      <p>Playwright is the company automation framework for end-to-end checks. Automated smoke can cover load of the login page, email format feedback, empty submit, and navigation to the registration link. SSO, 2FA, and accessibility still need the manual cases in this plan until those flows are stable enough to automate.</p>
+    </section>
+
+    <section id="risks">
+      <h2>11. Risks and Mitigations</h2>
+      <p>Project risks from the company template, applied to this login effort:</p>
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>Mitigation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A tester is unavailable.</td>
+            <td>Backup resource planning before Phase 1 execution.</td>
+          </tr>
+          <tr>
+            <td>The build URL does not load.</td>
+            <td>Testers switch to case design, data prep, or retest of an earlier phase until the URL is restored.</td>
+          </tr>
+          <tr>
+            <td>Time for testing is shorter than the three phases need.</td>
+            <td>Add people to match the approved scope. Protect Phase 1 login, reset, and session cases if scope must be cut. Record any cut in the summary.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Risks the PRD already names, and how testing responds:</p>
+      <table>
+        <thead>
+          <tr><th>Risk</th><th>What testing will do</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Security of login, including brute force and session handling.</td>
+            <td>Execute the security inclusions: HTTPS, rate limit, session timeout, and safe error text. The PRD also calls for audits, penetration testing, monitoring, and patches. Those activities stay with the security owners. This plan does not describe how to attack the system.</td>
+          </tr>
+          <tr>
+            <td>Performance under load and traffic spikes.</td>
+            <td>Check the 2-second load target and run the concurrent-login cases the environment can support. The PRD assigns load testing, monitoring, and auto-scaling to the platform. Test reports the observed timings and failures.</td>
+          </tr>
+          <tr>
+            <td>Accessibility or compliance evidence is missing at release.</td>
+            <td>WCAG 2.1 AA, GDPR, and CCPA checks in scope are mapped to cases. Gaps are defects, not informal notes.</td>
+          </tr>
+          <tr>
+            <td>Phase 3 SSO and social login depend on identity providers.</td>
+            <td>Do not start Phase 3 execution until test identity-provider accounts exist. Password login in Phase 1 does not wait on SSO.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="approvals">
+      <h2>12. Approvals</h2>
+      <p>The team sends the following for approval before the next step starts:</p>
+      <ul>
+        <li>Test plan</li>
+        <li>Test scenarios</li>
+        <li>Test cases</li>
+        <li>Reports</li>
+      </ul>
+      <p>Testing moves to the next step only after the matching approval is recorded.</p>
+      <table>
+        <thead>
+          <tr><th>Artifact</th><th>Approver role</th><th>Decision</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Test plan</td><td>QA lead and product stakeholder</td><td>Pending</td><td></td></tr>
+          <tr><td>Test scenarios</td><td>QA lead</td><td>Pending</td><td></td></tr>
+          <tr><td>Test cases</td><td>QA lead and client or product owner</td><td>Pending</td><td></td></tr>
+          <tr><td>Phase and closure reports</td><td>QA lead and stakeholder</td><td>Pending</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </article>
+</body>
+</html>
