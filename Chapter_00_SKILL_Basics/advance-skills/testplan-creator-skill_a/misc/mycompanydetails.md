@@ -1,0 +1,2 @@
+Short Summary:
+I am working right now on Infobeans Technologies Limited. Which is a service based company. Here we will do the complete workflow/functionality testing of an application which is either developed in house or outside. This company has 1800 employees.
