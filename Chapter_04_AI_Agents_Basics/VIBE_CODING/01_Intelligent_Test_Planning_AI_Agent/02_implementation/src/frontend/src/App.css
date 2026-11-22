@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f4f4f4;
+}
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+header h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+nav a {
+  margin-left: 1rem;
+  color: #1a5fb4;
+}
+.panel {
+  border: 2px solid #333;
+  background: #fff;
+  border-radius: 4px;
+}
+.layout-main .output {
+  min-height: 320px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.placeholder {
+  color: #666;
+  font-size: 1.25rem;
+}
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.input-row input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #999;
+}
+.layout-settings .block {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.layout-settings label {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+.layout-settings input {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+.btn-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.plan-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.plan-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.plan-toolbar .meta {
+  margin: 0;
+}
+.copy-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #1a5fb4;
+}
+.btn-secondary {
+  background: #f0f0f0;
+  border: 1px solid #999;
+}
+.plan-document {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #222;
+}
+.plan-document h1 {
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+.plan-document h2 {
+  font-size: 1.1rem;
+  margin: 1.25rem 0 0.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.25rem;
+}
+.plan-document h3 {
+  font-size: 1rem;
+  margin: 1rem 0 0.35rem;
+}
+.plan-document p {
+  margin: 0.5rem 0;
+}
+.plan-document ul,
+.plan-document ol {
+  margin: 0.35rem 0 0.75rem 1.25rem;
+  padding: 0;
+}
+.plan-document li {
+  margin: 0.25rem 0;
+}
+.plan-document blockquote {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.75rem;
+  border-left: 4px solid #1a5fb4;
+  background: #f6f9fc;
+  color: #333;
+}
+.plan-document table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.88rem;
+}
+.plan-document th,
+.plan-document td {
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+.plan-document th {
+  background: #f3f3f3;
+  font-weight: 600;
+}
+.plan-document hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1rem 0;
+}
+.plan-document strong {
+  font-weight: 600;
+}
+.meta {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.error {
+  color: #c01c28;
+}
+.muted {
+  color: #666;
+}
+.provider-pick {
+  border: none;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+.radio {
+  display: block;
+  margin: 0.35rem 0;
+}
+.layout-settings select {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+button {
+  cursor: pointer;
+  padding: 0.45rem 0.75rem;
+}
