@@ -135,7 +135,7 @@ The application must include:
 
 The `README.md` must explain:
 - Prerequisites and installation.
-- How the backend reads `config.md`.
+- How the backend reads `.env`.
 - Any additional required AI configuration.
 - Commands to run the frontend and backend.
 - How to use the application.
